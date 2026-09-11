@@ -1,8 +1,5 @@
-
 import express from "express";
-
 const router = express.Router();
-
 import Employee from "../module/employeeModel.js";
 
 // for get all 
@@ -12,11 +9,9 @@ router.get("/all", async (req, res) => {
     try {
         const data = await Employee.find();
         res.json(data);
-
     }
     catch (err) {
         res.status(500).json({ err: err.message });
-
     }
 
 });
@@ -26,21 +21,14 @@ router.get("/all", async (req, res) => {
 router.get("/:id", async (req, res) => {
 
     try {
-
         const data = await Employee.findById(req.params.id);
-
         res.json(data);
-
-
     }
     catch (err) {
 
         res.status(500).json({ err: err.message });
-
-
     }
 });
-
 
 //for post method 
 
@@ -75,16 +63,12 @@ router.post("/add", async (req, res) => {
         })
 
         res.status(201).json(savedata);
-
     }
 
     catch (err) {
 
         console.log(err);
         res.status(500).json({ message: err.message });
-
-
-
     }
 
 })
@@ -152,7 +136,6 @@ router.delete("/:id", async (req, res) => {
         const deletedata = await Employee.findByIdAndDelete(req.params.id);
         if (!deletedata) return res.status(404).json({ message: "Not Found Items...." });
         res.json("Deleted SuccessFully....");
-
     }
 
     catch (err) {

@@ -234,7 +234,6 @@ function EmployeeForm() {
 
                 <form onSubmit={handleSubmit}>
 
-                    {/* ================= PERSONAL INFORMATION ================= */}
                     <div className="mb-10">
                         <h2 className="text-xl font-semibold text-gray-800 border-b pb-3 mb-6">
                             1. Personal Information
@@ -443,7 +442,6 @@ function EmployeeForm() {
                             )}
                         </div>
                     </div>
-
 
                     <div className="mb-10">
                         <h2 className="text-xl font-semibold text-gray-800 border-b pb-3 mb-6">

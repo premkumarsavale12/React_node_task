@@ -16,9 +16,7 @@ ConnectDb();
 app.use('/api/employee', employee);
 
 app.get("", (req, res) => {
-
     res.send("Server is Running.....");
-
 })
 
 app.listen(5000, () => {
