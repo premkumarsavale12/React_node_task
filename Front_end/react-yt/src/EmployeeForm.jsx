@@ -1,41 +1,42 @@
-
-
 import { useState } from "react";
+const emptyFormData = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    mobile: "",
+    dob: "",
+    gender: "",
+    profilePicture: null,
+    address: "",
+    country: "",
+    state: "",
+    city: "",
+    pincode: "",
+    jobTitle: "",
+    companyName: "",
+    experience: "",
+    skills: [],
+    expectedSalary: "",
+    website: "",
+    linkedin: "",
+    preferredContact: "",
+    about: "",
+    termsAccepted: false,
+};
 
 function EmployeeForm() {
-    const [formData, setFormData] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        mobile: "",
-        dob: "",
-        gender: "",
-        profilePicture: null,
-
-        address: "",
-        country: "",
-        state: "",
-        city: "",
-        pincode: "",
-
-        jobTitle: "",
-        companyName: "",
-        experience: "",
-        skills: [],
-        expectedSalary: "",
-
-        website: "",
-        linkedin: "",
-        preferredContact: "",
-        about: "",
-        termsAccepted: false,
-    });
+    const [formData, setFormData] = useState(emptyFormData);
 
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState({ type: "", text: "" });
+
+    const resetForm = () => {
+        setFormData({ ...emptyFormData, skills: [] });
+        setErrors({});
+    };
 
     // Handle text, select, radio, checkbox and file inputs
     const handleChange = (e) => {
@@ -207,6 +208,7 @@ function EmployeeForm() {
                 type: "success",
                 text: "Employee registered successfully.",
             });
+            resetForm();
         } catch (error) {
             setSubmitMessage({
                 type: "error",
@@ -512,6 +514,7 @@ function EmployeeForm() {
                                 >
                                     <option value="">Select State</option>
                                     <option value="Gujarat">Gujarat</option>
+                                    <option value="MadhyaPradesh">MadhyaPradesh</option>
                                     <option value="Maharashtra">Maharashtra</option>
                                     <option value="Rajasthan">Rajasthan</option>
                                     <option value="Delhi">Delhi</option>
@@ -729,7 +732,7 @@ function EmployeeForm() {
                                 </label>
 
                                 <input
-                                    type="url"
+                                    type="text"
                                     name="website"
                                     value={formData.website}
                                     onChange={handleChange}
@@ -745,7 +748,7 @@ function EmployeeForm() {
                                 </label>
 
                                 <input
-                                    type="url"
+                                    type="text"
                                     name="linkedin"
                                     value={formData.linkedin}
                                     onChange={handleChange}
@@ -851,36 +854,7 @@ function EmployeeForm() {
 
                         <button
                             type="button"
-                            onClick={() => {
-                                setFormData({
-                                    firstName: "",
-                                    lastName: "",
-                                    email: "",
-                                    password: "",
-                                    confirmPassword: "",
-                                    mobile: "",
-                                    dob: "",
-                                    gender: "",
-                                    profilePicture: null,
-                                    address: "",
-                                    country: "",
-                                    state: "",
-                                    city: "",
-                                    pincode: "",
-                                    jobTitle: "",
-                                    companyName: "",
-                                    experience: "",
-                                    skills: [],
-                                    expectedSalary: "",
-                                    website: "",
-                                    linkedin: "",
-                                    preferredContact: "",
-                                    about: "",
-                                    termsAccepted: false,
-                                });
-
-                                setErrors({});
-                            }}
+                            onClick={resetForm}
                             className="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100"
                         >
                             Reset

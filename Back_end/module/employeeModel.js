@@ -29,7 +29,6 @@ const employeeSchema = new mongoose.Schema({
     mobile: {
         type: String,
         required: true,
-
     },
 
     dob: {
@@ -100,12 +99,14 @@ const employeeSchema = new mongoose.Schema({
     website: {
 
         type: String,
-        required: true
+        required: false,
+        default: ""
     },
     linkedin: {
 
         type: String,
-        required: true
+        required: false,
+        default: ""
     },
     preferredContact: {
         type: String,

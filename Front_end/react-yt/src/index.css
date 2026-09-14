@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@layer components {
+	.field-input {
+		width: 100%;
+		border: 1px solid rgb(203 213 225);
+		border-radius: 0.75rem;
+		background: rgb(248 250 252);
+		padding: 0.75rem 0.875rem;
+		color: rgb(15 23 42);
+		outline: none;
+		transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+	}
+
+	.field-input:focus {
+		border-color: rgb(16 185 129);
+		background: white;
+		box-shadow: 0 0 0 3px rgb(16 185 129 / 0.15);
+	}
+}
