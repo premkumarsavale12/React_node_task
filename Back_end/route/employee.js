@@ -26,7 +26,6 @@ router.get("/:id", async (req, res) => {
         res.status(500).json({ err: err.message });
     }
 });
-   
 //for post method 
 
 router.post("/add", async (req, res) => {
