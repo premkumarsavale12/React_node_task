@@ -35,7 +35,7 @@ const fieldGroups = [
     },
 ];
 
-function MedicineForm() {
+function Medicine() {
     const [formData, setFormData] = useState(emptyForm);
     const [errors, setErrors] = useState({});
     const [status, setStatus] = useState({ type: "", message: "" });
@@ -172,4 +172,4 @@ function MedicineForm() {
     );
 }
 
-export default MedicineForm;
+export default Medicine;
