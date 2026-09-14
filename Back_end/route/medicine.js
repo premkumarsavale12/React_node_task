@@ -45,34 +45,6 @@ router.post("/add", async (req, res) => {
     }
 });
 
-// router.post("/add", async (req, res) => {
-
-//     try {
-
-//         const data = await Medicine.create({
-
-//             MedicineName: req.body.MedicineName,
-//             GenericName: req.body.GenericName,
-//             MedicineType: req.body.MedicineType,
-//             ManufacturerName: req.body.ManufacturerName,
-//             BatchNumber: req.body.BatchNumber,
-//             ExpiryDate: req.body.ExpiryDate,
-//             MRP: req.body.MRP,
-//             SellingPrice: req.body.SellingPrice,
-//             StockQuantity: req.body.StockQuantity,
-//             Description: req.body.Description
-
-//         })
-//         res.status(201).json(data);
-//     }
-
-//     catch (err) {
-//         console.log(err);
-//         res.status(500).json({ message: err.message });
-
-
-//     }
-// });
 
 // for put method 
 
@@ -118,15 +90,11 @@ router.delete("/:id", async (req, res) => {
         const deletedata = await Medicine.findByIdAndDelete(req.params.id);
         if (!deletedata) return res.status(404).json({ message: "Not Found Items...." });
         res.json("deleted SuccessFully.....");
-
     }
 
     catch (err) {
-
         console.log(err);
-
         res.status(500).json({ message: err.message });
-
 
     }
 })
