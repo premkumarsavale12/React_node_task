@@ -54,7 +54,6 @@ const idParameter = {
     description: "MongoDB document ID",
     schema: objectId
 };
-
 const notFoundResponse = {
     description: "Document not found",
     content: { "application/json": { schema: { $ref: "#/components/schemas/Error" } } }
